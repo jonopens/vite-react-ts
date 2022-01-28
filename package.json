@@ -1,0 +1,34 @@
+{
+  "name": "hook-it",
+  "version": "1.0.0",
+  "description": "testing out hooks",
+  "main": "index.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview",
+    "lint": "eslint src/*",
+    "lint:fix": "eslint src/* --fix",
+    "lint:quiet": "eslint src/* --quiet",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "github.com/jonopens",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.2.1"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.10.1",
+    "@typescript-eslint/parser": "^5.10.1",
+    "@vitejs/plugin-react": "^1.1.4",
+    "eslint": "^8.7.0",
+    "eslint-plugin-react": "^7.28.0",
+    "less": "^4.1.2",
+    "typescript": "^4.5.5",
+    "vite": "^2.7.13"
+  }
+}
