@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-
+import { fileURLToPath } from 'url';
 import { dependencies } from "./package.json";
 
 // Packages we want in the vendor aka the deps needed in the entire app.
@@ -18,6 +18,12 @@ function renderChunks(deps: Record<string, string>) {
 export default defineConfig({
   root: 'public',
   plugins: [react()],
+  resolve: {
+    alias: {
+      // for TypeScript path alias import like : @/x/y/z
+      "@": fileURLToPath(new URL('./src', import.meta.url))
+    }
+  },
   build: {
     sourcemap: false,
     rollupOptions: {
@@ -26,6 +32,15 @@ export default defineConfig({
           vendor: globalVendorPackages,
           ...renderChunks(dependencies),
         },
+      },
+    },
+  },
+  server: {
+    proxy: {
+      "/api": {
+        target: "http://localhost:8080",
+        secure: false,
+        rewrite: path => path.replace(/^\/api/, ""),
       },
     },
   },
