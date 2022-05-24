@@ -1,13 +1,13 @@
 {
-  "name": "hook-it",
+  "name": "vite-react-ts",
   "version": "1.0.0",
   "description": "testing out hooks",
-  "main": "index.ts",
+  "main": "main.ts",
   "scripts": {
     "dev": "npm run build:css && concurrently \"npm run watch:css\" \"vite\"",
     "watch:css": "npx tailwindcss -i ./src/index.css -o ./src/styles.css --watch",
-    "build:css": "npx tailwindcss -i ./src/index.css -o ./src/styles.css",
-    "build": "tsc && npm run build:css && vite build",
+    "build:css": "npx tailwindcss -i ./src/index.css -o ./src/styles.css --minify",
+    "build": "tsc && vite build && npm run build:css",
     "preview": "vite preview",
     "lint": "eslint --ignore-path .eslintignore --ext .ts,.tsx .",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(ts|tsx|json)\"",
